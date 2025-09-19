@@ -5,7 +5,7 @@ const Navber = () => {
     const [visible, setVisible] = useState(false);
   return (
     <div className=" flex items-center justify-between py-5 font-medium">
-      <img src={assets.logo} className="w-48" alt="" />
+      <Link to="/"><img src={assets.logo} className="w-48" alt="" /></Link>
       <ul className="hidden sm:flex gap-5 text-gray-700">
         <NavLink to="/" className="flex flex-col items-center gap-1 ">
           <p>HOME</p>
@@ -44,7 +44,7 @@ const Navber = () => {
         </div>
         <Link to="/cart" className="relative">
           <img src={assets.cart_icon} className="w-5 min-w-5" alt="" />
-          <p className="absolute right-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">10</p>
+          <p className="absolute right-[-5px] top-[11px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[10px]">2</p>
         </Link>
         <img onClick={() => setVisible(true)} src={assets.menu_icon} className="w-5 cursor-pointer sm:hidden" alt="" />
       </div>
