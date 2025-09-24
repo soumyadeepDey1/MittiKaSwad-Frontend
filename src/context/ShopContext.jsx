@@ -1,6 +1,5 @@
-import { createContext } from "react";
 import { products } from "../assets/assets.js";
-export const ShopContext = createContext();
+import { ShopContext } from "./CreateContext.jsx";
 
 export const ShopContextProvider = (props) => {
 
