@@ -28,8 +28,7 @@ const Footer = () => {
                 </ul>
             </div>
         </div>
-        <div className='bg-gray-600 text-amber-100 mb-3'>
-            <hr />
+        <div className='bg-gray-200 text-gray-700 my-5'>
             <p className='py-5 text-sm text-center'>Copyright 2025@ mittikaswad.com - All Rights Reserved.</p>
         </div>
     </div>

@@ -1,8 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { assets } from "../assets/assets.js";
 import { Link, NavLink } from "react-router-dom";
+import { ShopContext } from "../context/CreateContext.jsx";
+import { useLocation, useNavigate } from "react-router-dom";
 const Navber = () => {
     const [visible, setVisible] = useState(false);
+    const {setShowSearch} = useContext(ShopContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const searchNavigation=()=>{
+      if (!location.pathname.includes('collection')) {
+        navigate('/collection');
+        setShowSearch(true);
+      }
+      else{
+        setShowSearch(true);
+      }
+    }
   return (
     <div className=" flex items-center justify-between py-5 font-medium">
       <Link to="/"><img src={assets.logo} className="w-48" alt="" /></Link>
@@ -26,7 +40,7 @@ const Navber = () => {
       </ul>
 
       <div className="flex items-center gap-6">
-        <img src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
+        <img onClick={() => searchNavigation()} src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
 
         <div className="group relative">
           <img
