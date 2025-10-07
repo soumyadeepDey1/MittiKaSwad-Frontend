@@ -5,7 +5,7 @@ import { ShopContext } from "../context/CreateContext.jsx";
 import { useLocation, useNavigate } from "react-router-dom";
 const Navber = () => {
     const [visible, setVisible] = useState(false);
-    const {setShowSearch} = useContext(ShopContext);
+    const {setShowSearch, getCartCount} = useContext(ShopContext);
     const location = useLocation();
     const navigate = useNavigate();
     const searchNavigation=()=>{
@@ -58,7 +58,7 @@ const Navber = () => {
         </div>
         <Link to="/cart" className="relative">
           <img src={assets.cart_icon} className="w-5 min-w-5" alt="" />
-          <p className="absolute right-[-5px] top-[11px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[10px] iceberg-regular">0</p>
+          <p className="absolute right-[-5px] top-[11px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[10px] iceberg-regular">{getCartCount()}</p>
         </Link>
         <img onClick={() => setVisible(true)} src={assets.menu_icon} className="w-5 cursor-pointer sm:hidden" alt="" />
       </div>

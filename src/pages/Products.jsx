@@ -5,8 +5,8 @@ import { assets } from "../assets/assets.js";
 import RelatedProduct from "../components/RelatedProduct.jsx";
 const Products = () => {
   const { productId } = useParams();
-  console.log(productId);
-  const { products, currency } = useContext(ShopContext);
+  // console.log(productId);
+  const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
   const [image, setImage] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -19,6 +19,7 @@ const Products = () => {
       if (item._id === productId) {
         setProductData(item);
         setImage(item.image[0]);
+        setQuantity(item.sizes[0]);
         // console.log(item);
         return null;
       }
@@ -28,26 +29,31 @@ const Products = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     getProductData();
   }, [productId]);
+  // useEffect(() => {
+  //   if (productData && productData.sizes) {
+  //     setQuantity(productData.sizes[0]);
+  //   }
+  // }, [productData]);
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity duration-500 opacity-100 ">
       {/* Product Data */}
       <div className="flex gap-12 sm:flex-row flex-col sm:gap-12">
         {/* Product Image */}
         <div className="flex-[1.3] flex flex-col-reverse gap-3 sm:flex-row ">
-          <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[14.7%] w-full">
+          <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[14.7%] w-full  ">
             {productData.image.map((item, index) => (
               <img
                 onClick={() => setImage(item)}
                 src={item}
                 alt=""
                 key={index}
-                className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer hover:scale-95"
+                className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer hover:scale-95 rounded-2xl shadow-md"
               />
             ))}
           </div>
           <div className="w-full sm:w-[70%]">
             <img
-              className="w-full h-auto hover:scale-104 transition duration-300 "
+              className="w-full h-auto hover:scale-104 transition duration-300 rounded-2xl shadow-2xl"
               src={image}
               alt=""
             />
@@ -87,7 +93,7 @@ const Products = () => {
               ))}
             </div>
           </div>
-          <button className="bg-amber-700 text-amber-50 px-5 py-3 text-sm active:bg-amber-500 cursor-pointer">
+          <button onClick={() => addToCart(productData._id, quantity)} className="bg-amber-700 text-amber-50 px-5 py-3 text-sm active:bg-amber-500 cursor-pointer">
             ADD TO CART
           </button>
           <hr className="mt-4 sm:w-4/5 border-gray-200 border " />

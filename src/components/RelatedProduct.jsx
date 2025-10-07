@@ -19,13 +19,16 @@ const RelatedProduct = ({category,subCategory,_id}) => {
 
   return (
     <div className='my-24'>
-        <div className='text-center text-3xl py-2'>
+        <div className=' text-3xl py-2'>
             <Title text1={"Related"} text2={"Products"}/>
         </div>
         <div className='grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'>
             {relatedProducts.map((item,index)=>(
                 <ProductItem key={index} _id={item._id} name={item.name} price={item.price} image={item.image} />
             ))}
+            {
+                relatedProducts.length===0 && <p className='text-center col-span-full text-gray-500'>No Related Products Found</p>
+            }
         </div>
     </div>
   )

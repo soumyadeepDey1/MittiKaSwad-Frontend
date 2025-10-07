@@ -80,7 +80,7 @@ const Collection = () => {
           />
         </p>
         <div
-          className={`border border-gray-300 pl-5 py-3 mt-6 ${
+          className={`border border-gray-300 pl-5 py-3 mt-6 rounded-md shadow-2xl ${
             showFilter ? "" : "hidden"
           } sm:block`}
         >
@@ -168,7 +168,7 @@ const Collection = () => {
           </div>
         </div>
         <div
-          className={`border border-gray-300 pl-5 py-3 mt-6 ${
+          className={`border border-gray-300 pl-5 py-3 mt-6 rounded-md shadow-2xl ${
             showFilter ? "" : "hidden"
           } sm:block`}
         >
