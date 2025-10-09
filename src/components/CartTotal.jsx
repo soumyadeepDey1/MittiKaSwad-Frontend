@@ -10,7 +10,7 @@ const CartTotal = () => {
         <div className='text-2xl px-3'>
             <Title text1={'CART'} text2={'TOTAL'} />
         </div>
-        <div className='flex flex-col gap-2 mt-2 text-sm border border-gray-100 rounded-xl shadow-2xl p-5'>
+        <div className='flex flex-col gap-2 mt-2 text-md border border-gray-100 rounded-xl shadow-2xl p-5'>
             <div className='flex justify-between'>
                 <p>SUBTOTAL</p>
                 <p className='iceberg-regular'>{currency}{getCartAmount()}.00</p>

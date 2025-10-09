@@ -67,10 +67,10 @@ const Cart = () => {
         }
       </div>
       <div className="flex justify-end my-20 ">
-        <div className="w-full sm:w-[450px]">
+        <div className="w-full sm:w-[500px]">
             <CartTotal/>
-            <div className="w-full text-end">
-              <button onClick={()=>cartData.length===0 ? toast.warning('Cart Amout is Zero (0)') : navigate('/place-order')} className="border bg-slate-500 text-amber-50 text-sm my-8 px-8 py-3 cursor-pointer active:bg-slate-100 active:text-slate-800 active:border-slate-800  rounded shadow-2xl">PROCEED TO CHECKOUT</button>
+            <div className="w-full text-end ">
+              <button onClick={()=>cartData.length===0 ? toast.warning('Cart Amout is Zero (0)') : navigate('/place-order')} className="border bg-slate-600 text-amber-50 text-sm my-8 px-8 py-3 cursor-pointer active:bg-slate-100 active:text-slate-800 active:border-slate-800  rounded shadow-2xl">PROCEED TO CHECKOUT</button>
             </div>
         </div>
       </div>
