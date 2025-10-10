@@ -37,7 +37,7 @@ const Orders = () => {
                 <p className="min-w-2 h-2 rounded-full bg-green-500"></p>
                 <p className="text-sm md:text-base text-gray-600">Order Placed</p>
               </div>
-              <button className="border px-4 py-2 text-sm font-medium rounded-sm border-gray-300 text-gray-500 active:bg-slate-700 active:text-amber-50 cursor-pointer">Track Order</button>
+              <button className="border px-4 py-2 text-sm font-medium rounded-sm border-gray-400 text-gray-500 active:bg-slate-700 active:text-amber-50 cursor-pointer">Track Order</button>
             </div>
           </div>
         ))}
