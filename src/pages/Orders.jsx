@@ -13,19 +13,19 @@ const Orders = () => {
         {products.slice(1, 4).map((item, index) => (
           <div
             key={index}
-            className="py-4 border border-gray-100 px-4 my-3 rounded-2xl shadow-2xl text-gray-700 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+            className="py-5 border border-gray-100 px-4  my-3 rounded-2xl shadow-md hover:shadow-2xl text-gray-700 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
           >
             <div className="flex items-start gap-6 text-sm">
-              <img className="w-16 sm:w-20" src={item.image[0]} alt="" />
+              <img className="w-16 sm:w-22 rounded" src={item.image[0]} alt="" />
               <div className="text-gray-600">
                 <p className="sm:text-base font-medium">{item.name}</p>
                 <div className="flex items-center gap-3 mt-2 text-base text-gray-500">
-                  <p className="text-lg">
+                  <p className="iceberg-regular text-lg">
                     {currency}
                     {item.price}
                   </p>
-                  <p>Quantity: 1</p>
-                  <p>Size: 500g</p>
+                  <p className="iceberg-regular">Quantity: 1</p>
+                  <p className="iceberg-regular">500g</p>
                 </div>
                 <p>
                   Date: <span className="text-gray-500">10, Oct,2025</span>
