@@ -33,6 +33,7 @@ const Login = () => {
           type="password"
           className="w-full px-3 py-2 border border-gray-800 rounded"
           placeholder="Password"
+          required
         />
         <div className="w-full flex justify-between text-sm mt-[-8px]">
           <p className="cursor-pointer hover:underline">Forgote your password?</p>
