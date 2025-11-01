@@ -18,7 +18,7 @@ const CartTotal = () => {
             <hr />
             <div className='flex justify-between'>
                 <p>DELIVERY CHARGE</p>
-                <p className='iceberg-regular'>{currency}{deliveryCharge}.00</p>
+                <p className='iceberg-regular'>{currency}{getCartAmount() === 0 ? 0 : deliveryCharge}.00</p>
             </div>
             <hr />
             <div className='flex justify-between '>

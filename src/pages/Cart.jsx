@@ -22,6 +22,7 @@ const Cart = () => {
       }
     }
     setCartData(tempData);
+    
     // console.log(cartData);
   }, [cartItems]);
 
@@ -51,7 +52,7 @@ const Cart = () => {
                     {productData.name}
                   </p>
                   <div className="flex items-center gap-5 mt-2 text-gray-500">
-                    <p className="iceberg-regular">{currency}{productData.price}</p>
+                    <p className="iceberg-regular">{currency}{productData.price*item.quantity}</p>
                     <p className="iceberg-regular px-2 sm:px-3 sm:py-1 border border-gray-300 bg-slate-50 rounded">{item.size}</p>
                   </div>
                 </div>

@@ -4,7 +4,7 @@ import Title from "../components/Title.jsx";
 import { ShopContext } from "../context/CreateContext.jsx";
 import ProductItem from "../components/ProductItem.jsx";
 const Collection = () => {
-  const { products , search , showSearch } = useContext(ShopContext);
+  const { products, search, showSearch } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
@@ -13,50 +13,56 @@ const Collection = () => {
   const toggleCategory = (e) => {
     const value = e.target.value;
     if (category.includes(value)) {
-       setCategory(prev => prev.filter(item => item !== value));
+      setCategory((prev) => prev.filter((item) => item !== value));
     } else {
-       setCategory(prev => [...prev, value]);
+      setCategory((prev) => [...prev, value]);
     }
   };
   const toggleSubCategory = (e) => {
     const value = e.target.value;
-    if(subCategory.includes(value)){
-        setSubCategory(prev => prev.filter(item => item !== value));
+    if (subCategory.includes(value)) {
+      setSubCategory((prev) => prev.filter((item) => item !== value));
     } else {
-        setSubCategory(prev => [...prev, value]);
+      setSubCategory((prev) => [...prev, value]);
     }
   };
 
   const applyFilters = () => {
     let updatedList = products.slice();
 
-    if (showSearch && search.trim() !== '') {
-       updatedList = updatedList.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
+    if (showSearch && search.trim() !== "") {
+      updatedList = updatedList.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      );
     }
     if (category.length > 0) {
-      updatedList = updatedList.filter(item => category.includes(item.category))
+      updatedList = updatedList.filter((item) =>
+        category.includes(item.category)
+      );
     }
-    if(subCategory.length > 0){
-        updatedList = updatedList.filter(item => subCategory.includes(item.subCategory))
+    if (subCategory.length > 0) {
+      updatedList = updatedList.filter((item) =>
+        subCategory.includes(item.subCategory)
+      );
     }
     setFilterProducts(updatedList);
   };
 
-  const sortProducts = () =>{
+  const sortProducts = () => {
     let sortedList = filterProducts.slice();
 
     switch (sortType) {
-      case 'low-to-high':
-        setFilterProducts(sortedList.sort((a,b)=> (a.price - b.price)));
+      case "low-to-high":
+        setFilterProducts(sortedList.sort((a, b) => a.price - b.price));
         break;
-      case 'high-to-low':
-        setFilterProducts(sortedList.sort((a,b)=> (b.price - a.price)));
+      case "high-to-low":
+        setFilterProducts(sortedList.sort((a, b) => b.price - a.price));
         break;
       default:
         applyFilters();
         break;
     }
-  }
+  };
 
   useEffect(() => {
     applyFilters();
@@ -175,23 +181,53 @@ const Collection = () => {
           <p className="mb-3 font-medium">TYPE</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
             <p className="flex gap-2">
-              <input className="w-3.5" id="Dry Food Staples" type="checkbox" value={"Dry Food Staples"} onChange={toggleSubCategory}/>
+              <input
+                className="w-3.5"
+                id="Dry Food Staples"
+                type="checkbox"
+                value={"Dry Food Staples"}
+                onChange={toggleSubCategory}
+              />
               <label htmlFor="Dry Food Staples">Dry Food Staples</label>
             </p>
             <p className="flex gap-2">
-              <input className="w-3.5" id="Flour & Powders" type="checkbox" value={"Flour & Powders"} onChange={toggleSubCategory}/>
+              <input
+                className="w-3.5"
+                id="Flour & Powders"
+                type="checkbox"
+                value={"Flour & Powders"}
+                onChange={toggleSubCategory}
+              />
               <label htmlFor="Flour & Powders">Flour & Powders</label>
             </p>
             <p className="flex gap-2">
-              <input className="w-3.5" id="Liquid & Gel" type="checkbox" value={"Liquid & Gel"} onChange={toggleSubCategory}/>
+              <input
+                className="w-3.5"
+                id="Liquid & Gel"
+                type="checkbox"
+                value={"Liquid & Gel"}
+                onChange={toggleSubCategory}
+              />
               <label htmlFor="Liquid & Gel">Liquid & Gel</label>
             </p>
             <p className="flex gap-2">
-              <input className="w-3.5" id="Drinks & Herbs" type="checkbox" value={"Drinks & Herbs"} onChange={toggleSubCategory}/>
+              <input
+                className="w-3.5"
+                id="Drinks & Herbs"
+                type="checkbox"
+                value={"Drinks & Herbs"}
+                onChange={toggleSubCategory}
+              />
               <label htmlFor="Drinks & Herbs">Drinks & Herbs</label>
             </p>
             <p className="flex gap-2">
-              <input className="w-3.5" id="Artisan & Homeware" type="checkbox" value={"Artisan & Homeware"} onChange={toggleSubCategory}/>
+              <input
+                className="w-3.5"
+                id="Artisan & Homeware"
+                type="checkbox"
+                value={"Artisan & Homeware"}
+                onChange={toggleSubCategory}
+              />
               <label htmlFor="Artisan & Homeware">Artisan & Homeware</label>
             </p>
           </div>
@@ -201,7 +237,10 @@ const Collection = () => {
         <div className="flex justify-between text-base sm:text-2xl mb-4">
           <Title text1={"All"} text2={"Products"} />
           {/* Product Sort */}
-          <select onChange={(e)=> setSortType(e.target.value)} className="border-2 border-gray-300 text-sm px-2 ">
+          <select
+            onChange={(e) => setSortType(e.target.value)}
+            className="border-2 border-gray-300 text-sm px-2 "
+          >
             <option value="relevant">Sort by:Relevant</option>
             <option value="low-to-high">Price: Low to High</option>
             <option value="high-to-low">Price: High to Low</option>
@@ -218,9 +257,9 @@ const Collection = () => {
               price={item.price}
             />
           ))}
-          {
-            filterProducts.length === 0 && <p className="text-gray-500">No products found.</p>
-          }
+          {filterProducts.length === 0 && (
+            <p className="text-gray-500">No products found.</p>
+          )}
         </div>
       </div>
     </div>
