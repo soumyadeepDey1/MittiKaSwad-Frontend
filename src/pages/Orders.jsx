@@ -3,7 +3,7 @@ import { ShopContext } from "../context/CreateContext";
 import Title from "../components/Title";
 
 const Orders = () => {
-  const { cartItems,updateQuantity, currency, products } = useContext(ShopContext);
+  const { cartItems, currency, products } = useContext(ShopContext);
   const [orderData, setOrderData] = useState([]);
     useEffect(() => {
       const tempData = [];
